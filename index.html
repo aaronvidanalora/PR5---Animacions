@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Evitar el desbordamiento horizontal */
+        }
+
+        header, main, footer {
+            height: 300px;
+        }
+
+        header {
+            background-color: aliceblue;
+        }
+
+        main {
+            background-color: bisque;
+        }
+
+        footer {
+            background-color: aquamarine;
+            position: relative;
+        }
+
+        .persona {
+            position: fixed;
+            bottom: -300px;
+            right: 0;
+            width: 300px;
+            height: 450px; /* Ajustado para acomodar la imagen con dos caras */
+            transition: transform 0.7s, bottom 0.3s ease-out;
+        }
+
+        footer:hover .persona {
+            bottom: 0;
+            visibility: visible;
+            transform: rotateY(180deg);
+        }
+
+        .cara-trasera {
+            position: absolute;
+            backface-visibility: hidden; /* Evitar el parpadeo en algunas situaciones */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.7s ease-in-out; /* Agrega la transición para el nombre */
+        }
+
+        footer:hover .persona .cara-trasera p {
+            transform: rotateY(180deg); /* Rota solo el texto */
+            margin: 0; /* Ajusta el margen para evitar la inversión visual */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        header
+    </header>
+    <main>
+        Main
+    </main>
+    <footer>
+        Footer
+        <div class="persona">
+            <img class="editaPersona" src="src/0cc53aa8c012986e0025ff723adb66b4-removebg-preview.png" alt="img">
+            <div class="cara-trasera">
+                <p style="margin-left: 70px;">AARON</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
